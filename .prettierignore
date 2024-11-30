@@ -1,5 +1,6 @@
 # dependencies
 /node_modules
+pnpm-lock.yaml
 
 # next
 /.next
@@ -14,7 +15,3 @@
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# misc
-.DS_Store
-*.pem

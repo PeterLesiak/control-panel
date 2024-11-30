@@ -1,18 +1,26 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ['./src/**/*.{jsx,tsx}'],
+
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+    colors: {
+      transparent: 'transparent',
+      background: {
+        900: 'hsl(0 0% 3%)',
+        700: 'hsl(0 0% 7%)',
+      },
+      foreground: 'hsl(0 0% 100%)',
+      primary: 'hsl(160 100% 50%)',
+    },
+
+    gradientColorStops: {
+      header: {
+        from: '#43cea2',
+        to: '#185a9d',
       },
     },
   },
+
   plugins: [],
 } satisfies Config;
