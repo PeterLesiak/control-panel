@@ -10,15 +10,20 @@ const io = new Server(httpServer, {
 });
 
 io.on('connection', socket => {
-  console.log('Client connected:', socket.id);
+  console.log(`Client connected: ${socket.id}`);
+
+  socket.on('frame', frame => {
+    // Forward the frame to all other clients
+    socket.broadcast.emit('frame', frame);
+  });
 
   socket.on('disconnect', () => {
-    console.log('Client disconnected:', socket.id);
+    console.log(`Client disconnected: ${socket.id}`);
   });
 });
 
-const port = 8080;
+const port = 9696;
 
 httpServer.listen(port, () => {
-  console.log(`Socket.IO server running on http://localhost:${port}`);
+  console.log(`Socket.IO server running on http://localhost:${port}\n`);
 });
